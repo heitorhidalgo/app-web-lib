@@ -1,33 +1,43 @@
-import React from "react";
-import NavBar from "./components/layouts/NavBar";
-import Container from "./components/layouts/Container";
-import Home from "./components/pages/home";
-import Createbooks from "./components/pages/CreateBook";
-import ListBooks from "./components/pages/ListBooks";
+/* Importa os componente de navegação da aplicação */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+/* Importa o CSS */
+import "./App.css";
+
+/* Importa o componente de meu */
+import NavBar from "./components/layout/NavBar";
+
+/* Importa o componente de container */
+import Container from "./components/layout/Container";
+
+/* Importação das páginas */
+import Home from "./components/pages/Home";
+import ListBooks from "./components/pages/ListBooks";
+import CreateBooks from "./components/pages/CreateBooks";
+import DetailBook from "./components/pages/DetailBook";
+import DeleteBook from "./components/pages/DeleteBook";
+import UpdateBooks from "./components/pages/UpdateBooks";
 
 function App() {
   return (
     <>
-      {/* <Container>
-        <NavBar />
-        <Home />
-        <Createbooks />
-        <ListBooks />
-      </Container> */}
-
+      {/* Estrutura de navegação */}
       <BrowserRouter>
         <Container>
-            <Routes>
-              <Route path='/' element={<NavBar />}>
-                  <Route path='/' element={<Home />} />
-                  <Route path='/listBook' element={<ListBooks />} />
-                  <Route path='/newBook' element={<Createbooks />} />
-              </Route>
-            </Routes>
+          <Routes>
+            <Route path="/" element={<NavBar />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/listBook" element={<ListBooks />} />
+              <Route path="/createBook" element={<CreateBooks />} />
+              <Route path="/DetailBook/:cod_livro" element={<DetailBook />} />
+              <Route path="/deleteBook/:cod_livro" element={<DeleteBook />} />
+              <Route path="/updateBook/:cod_livro" element={<UpdateBooks />} />
+            </Route>
+          </Routes>
         </Container>
       </BrowserRouter>
     </>
   );
 }
+
 export default App;

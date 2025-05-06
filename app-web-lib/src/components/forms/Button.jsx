@@ -1,11 +1,11 @@
-import style from './Button.module.css'
+import styles from "./Button.module.css";
 
-const Button = ({label})=>{
-    return(
-            <div>
-                <button>{label}</button>
-            </div>
-    )  
-}
+const Button = ({ rotulo }) => {
+  return (
+    <div className={styles.button}>
+      <button>{rotulo}</button>
+    </div>
+  );
+};
 
-export default Button
+export default Button;
